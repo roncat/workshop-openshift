@@ -19,7 +19,7 @@ Existem duas opções de _SSH Client_ que recomendamos:
 
 ## 2.0 Máquina Virtual
 
-Durante este workshop utilizaremos utilizaremos uma VM Linux como ambiente base dos laboratórios propostos aqui.
+Durante este workshop utilizaremos uma VM Linux como ambiente base dos laboratórios propostos aqui.
 
 Temos três diferentes opções para obter e utilizar essa VM: 
  * **Cloud Provider**: ambiente pré configurado pelo Instrutor
