@@ -1,4 +1,4 @@
-# Lab 1.0
+# Lab 1
 
 ## Objetivos
 
