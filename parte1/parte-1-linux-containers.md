@@ -46,4 +46,4 @@ Os **registros remotos são servidores, públicos ou privados, responsáveis por
 * [**https://registry.fedoraproject.org**](https://registry.fedoraproject.org)
 
 ## Labs
-* [**Laboratório**](/Labs) _Material dedicado à discussão introdutória sobre a tecnologia de containers Linux._
+* [**Laboratório**](../Labs) _Material dedicado à discussão introdutória sobre a tecnologia de containers Linux._
