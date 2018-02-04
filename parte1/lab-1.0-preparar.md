@@ -1,12 +1,14 @@
-# Lab 1.0 - Objetivos
+# Lab 1.0
+
+## Objetivos
 
 * Preparar o ambiente local para os próximos exercícios.
 
-# Tarefas
+## Tarefas
 
-## 1.0 Para usuários de estação de trabalho com MS Windows
+### 1.0 Para usuários com estação de trabalho Windows
 
-### 1.0.1 Cliente SSH
+#### 1.0.1 Cliente SSH
 
 Instale um cliente SSH para acessar o _shell_ da VM que será utilizada durante todo o nosso workshop.
 
@@ -17,7 +19,7 @@ Existem duas opções de _SSH Client_ que recomendamos:
 
  * [**Git Bash**](https://git-scm.com/download/win) (incluso no GIT SCM for Windows) 
 
-## 2.0 Máquina Virtual
+### 2.0 Máquina Virtual
 
 Durante este workshop utilizaremos uma VM Linux como ambiente base dos laboratórios propostos aqui.
 
@@ -32,14 +34,14 @@ Temos três diferentes opções para obter e utilizar essa VM:
   * VMware Fusion
   * etc
 
-### 2.0.1 - Instalar um virtualizador
+#### 2.0.1 - Instalar um virtualizador
 
 Para conseguirmos montar um ambiente local, sem interferir na sua máquina pessoal/profissional, recomendamos o uso de uma ferramenta de virtualização. Dentre as diversas opções, **recomendamos o VirtualBox \(Windows/Mac\) ou o Virt-Manager/KVM \(Linux\):**
 
 * [**https://www.virtualbox.org**](https://www.virtualbox.org)
 * [**https://virt-manager.org**](https://virt-manager.org)
 
-### 2.0.3 - Criar a máquina virtual (VM)
+#### 2.0.3 - Criar a máquina virtual (VM)
 Nos exercícios desse material vamos utilizar o **CentOS**.
 
 Após a instalação do virtualizador e a cópia do ISO do sistema operacional, vamos criar uma máquina virtual com as seguintes características:
@@ -51,7 +53,7 @@ Após a instalação do virtualizador e a cópia do ISO do sistema operacional, 
 * **SO**: Red Hat 64bits
 * **BOOT**: ISO \(apontar pro caminho correto\)
 
-### 2.0.4 - Instalação do Sistema Operacional (SO)
+#### 2.0.4 - Instalação do Sistema Operacional (SO)
 
 Alguns passos importantes para a instalação:
 
@@ -67,7 +69,7 @@ Alguns passos importantes para a instalação:
 
 ![](/parte1/extras/centos-install-networking.png)
 
-### 2.0.5 - Instalar os pré-requisitos para trabalhar com containers
+#### 2.0.5 - Instalar os pré-requisitos para trabalhar com containers
 
 Recomendamos acessar o _shell_ da VM usando um _SSH client_ (PuTTY ou Git Bash no caso do windows). 
 
@@ -75,7 +77,7 @@ Para isso abra seu SSH client, informe o IP da VM (pode ser obtido através do c
 
 > Caso necessite, peça ajuda ao instrutor! 
 
-#### 2.0.5.1 Update do S.O (OPCIONAL!)
+##### 2.0.5.1 Update do S.O (OPCIONAL!)
 Antes de começarmos a instalação do ambiente, precisamos garantir que todos os pacotes do sistema estejam atualizados:
 
 ```
@@ -83,13 +85,13 @@ Antes de começarmos a instalação do ambiente, precisamos garantir que todos o
 # systemctl reboot
 ```
 
-#### 2.0.5.2 Instalação dos pacotes mínimos necessários
+##### 2.0.5.2 Instalação dos pacotes mínimos necessários
 
 ```
 # yum install vim wget git bash-completion docker
 ```
 
-#### 2.0.5.3 Preparação do Docker Storage no host
+##### 2.0.5.3 Preparação do Docker Storage no host
 
 Antes de inicializarmos o runtime de containers, precisamos preparar o segundo disco para ser usado como registro local de imagens. Para tal, execute o comando abaixo para identificar o dispositivo de disco:
 
