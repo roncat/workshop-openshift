@@ -24,7 +24,7 @@ Durante este workshop utilizaremos uma VM Linux como ambiente base dos laborató
 Temos três diferentes opções para obter e utilizar essa VM: 
  * **Cloud Provider**: ambiente pré configurado pelo Instrutor
  * **Virtual Box Appliance**: VM pré instalada e fornecida pelo Instrutor
- > [baixe aqui](https://drive.google.com/open?id=16CHefCCaXL9wfhsx6C7jgH11ODO5mFdP) (`~845mb`) ou peça ao instrutor o arquivo!
+ > redhat-workshop-2018.ova [(baixe aqui)](https://drive.google.com/open?id=16CHefCCaXL9wfhsx6C7jgH11ODO5mFdP) (`~845mb`) ou peça a cópia do arquivo para o instrutor!
 
  * **VM criada pelo aluno**: VM Criada pelo próprio aluno usando alguma ferramenta de Virtualização
   * Virtual Box
@@ -34,15 +34,15 @@ Temos três diferentes opções para obter e utilizar essa VM:
 
 ### 2.0.1 - Instalar um virtualizador
 
-Para conseguirmos montar um ambiente local sem interferir na sua máquina pessoal/profissional, recomendamos o uso de uma ferramenta de virtualização. Dentre as diversas opções, **recomendamos o VirtualBox \(Windows/Mac\) ou o Virt-Manager/KVM \(Linux\):**
+Para conseguirmos montar um ambiente local, sem interferir na sua máquina pessoal/profissional, recomendamos o uso de uma ferramenta de virtualização. Dentre as diversas opções, **recomendamos o VirtualBox \(Windows/Mac\) ou o Virt-Manager/KVM \(Linux\):**
 
 * [**https://www.virtualbox.org**](https://www.virtualbox.org)
 * [**https://virt-manager.org**](https://virt-manager.org)
 
 ### 2.0.3 - Criar a máquina virtual (VM)
-Nos exercícios desse material vamos usar o **CentOS**.
+Nos exercícios desse material vamos utilizar o **CentOS**.
 
-Após a instalação do virtualizador e a cópia do ISO do sistema operacional, vamos criar uma máquina virtual nas seguintes características:
+Após a instalação do virtualizador e a cópia do ISO do sistema operacional, vamos criar uma máquina virtual com as seguintes características:
 
 * **CPU**: 2 vCPU
 * **RAM**: 2G
@@ -63,7 +63,7 @@ Alguns passos importantes para a instalação:
 
 ![](/parte1/extras/centos-install-packages.png)
 
-* **Não esqueça de dar um hostname e configurar a rede!**
+* **Não esqueça de definir um "hostname" e configurar a rede!**
 
 ![](/parte1/extras/centos-install-networking.png)
 
@@ -91,13 +91,13 @@ Antes de começarmos a instalação do ambiente, precisamos garantir que todos o
 
 #### 2.0.5.3 Preparação do Docker Storage no host
 
-Antes de inicializarmos o runtime de containers, precisamos preparar o segundo disco para ser usado como registro local de imagens. Para tal, precisamos descobrir qual o dispositivo é o disco:
+Antes de inicializarmos o runtime de containers, precisamos preparar o segundo disco para ser usado como registro local de imagens. Para tal, execute o comando abaixo para identificar o dispositivo de disco:
 
 ```
 # lsblk
 ```
 
-Depois precisamos editar o arquivo `/etc/sysconfig/docker-storage-setup`com o seguinte conteúdo (adaptando o `vdb` ou `sdb` para o dispositivo em questão):
+Agora, precisamos editar o arquivo `/etc/sysconfig/docker-storage-setup` com o seguinte conteúdo (adaptando o `vdb` ou `sdb` para o dispositivo em questão):
 
 ```
 STORAGE_DRIVER="devicemapper"
@@ -111,15 +111,21 @@ Depois precisamos executar o utilitário para criar e configurar o storage do do
 # docker-storage-setup
 ```
 
-Para finalizar, configuramos o Systemd para habilitar e inicializar o runtime:
+Para finalizar, configuramos o Systemd para habilitar e inicializar o runtime `Docker`:
 
 ```
 # systemctl enable docker
 # systemctl start docker
 ```
 
-Caso queira confirmar que tudo está certo, execute:
+Caso queira confirmar se tudo está correto, execute:
 
 ```
 # docker run hello-world
+```
+A saída deve ser parecido com isso:
+
+```
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
 ```
